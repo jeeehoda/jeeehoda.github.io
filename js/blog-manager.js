@@ -12,6 +12,7 @@ class BlogManager {
         this.setupEventListeners();
         this.renderBlogPosts();
         this.renderRecentPosts();
+        this.setupPostForm();
     }
 
     async loadPosts() {
@@ -20,6 +21,9 @@ class BlogManager {
             const data = await response.json();
             this.posts = data.posts.filter(post => post.published);
             this.categories = data.categories;
+            
+            // 로컬 스토리지에서 사용자 포스트 로드
+            this.loadPostsFromStorage();
         } catch (error) {
             console.error('Failed to load posts:', error);
             this.posts = [];
@@ -270,6 +274,95 @@ class BlogManager {
         });
         return counts;
     }
+
+    // 포스트 작성 폼 설정
+    setupPostForm() {
+        const quickPostForm = document.getElementById('quick-post-form');
+        if (quickPostForm) {
+            quickPostForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.saveQuickPost();
+            });
+        }
+    }
+
+    // 빠른 포스트 저장
+    saveQuickPost() {
+        const formData = new FormData(document.getElementById('quick-post-form'));
+        
+        const newPost = {
+            id: this.generatePostId(),
+            title: formData.get('title'),
+            excerpt: formData.get('excerpt'),
+            content: formData.get('content'),
+            category: formData.get('category'),
+            date: new Date().toISOString().split('T')[0],
+            tags: formData.get('tags').split(',').map(tag => tag.trim()).filter(tag => tag),
+            author: 'jeeho',
+            featured: false,
+            readTime: formData.get('readTime'),
+            image: `https://via.placeholder.com/800x400/6C9FBF/FFFFFF?text=${encodeURIComponent(formData.get('title'))}`,
+            published: true
+        };
+
+        // 포스트 추가
+        this.posts.unshift(newPost); // 최신 포스트를 맨 앞에 추가
+        
+        // 로컬 스토리지에 저장
+        this.savePostsToStorage();
+        
+        // UI 업데이트
+        this.renderBlogPosts();
+        this.renderRecentPosts();
+        
+        // 폼 초기화 및 숨기기
+        this.resetPostForm();
+        this.hidePostForm();
+        
+        alert('포스트가 성공적으로 저장되었습니다!');
+    }
+
+    // 포스트 ID 생성
+    generatePostId() {
+        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    }
+
+    // 포스트를 로컬 스토리지에 저장
+    savePostsToStorage() {
+        localStorage.setItem('userPosts', JSON.stringify(this.posts));
+    }
+
+    // 로컬 스토리지에서 포스트 로드
+    loadPostsFromStorage() {
+        const savedPosts = localStorage.getItem('userPosts');
+        if (savedPosts) {
+            const userPosts = JSON.parse(savedPosts);
+            // 기존 포스트와 사용자 포스트를 합침
+            this.posts = [...userPosts, ...this.posts.filter(post => !userPosts.some(userPost => userPost.id === post.id))];
+        }
+    }
+
+    // 포스트 폼 초기화
+    resetPostForm() {
+        document.getElementById('quick-post-form').reset();
+    }
+
+    // 포스트 폼 숨기기
+    hidePostForm() {
+        const form = document.getElementById('post-write-form');
+        if (form) {
+            form.style.display = 'none';
+        }
+    }
+
+    // 포스트 폼 표시하기
+    showPostForm() {
+        const form = document.getElementById('post-write-form');
+        if (form) {
+            form.style.display = 'block';
+            form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
 }
 
 // 전역 함수들
@@ -307,6 +400,18 @@ window.likePost = function(postId) {
 
 // 전역 인스턴스
 let blogManager;
+
+// 전역 함수들
+window.togglePostForm = function() {
+    if (blogManager) {
+        const form = document.getElementById('post-write-form');
+        if (form.style.display === 'none' || form.style.display === '') {
+            blogManager.showPostForm();
+        } else {
+            blogManager.hidePostForm();
+        }
+    }
+};
 
 // DOM 로드 후 초기화
 document.addEventListener('DOMContentLoaded', () => {

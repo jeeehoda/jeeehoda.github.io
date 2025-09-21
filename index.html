@@ -90,11 +90,65 @@
 
                 </div>
 
-                <div class="blog-filters">
-                    <button class="filter-btn active">All</button>
-                    <button class="filter-btn">Development</button>
-                    <button class="filter-btn">Design</button>
-                    <button class="filter-btn">Technology</button>
+                <div class="blog-controls">
+                    <div class="blog-filters">
+                        <button class="filter-btn active">All</button>
+                        <button class="filter-btn">Development</button>
+                        <button class="filter-btn">Design</button>
+                        <button class="filter-btn">Technology</button>
+                    </div>
+                    <button class="write-post-btn" onclick="togglePostForm()">
+                        <span>✏️</span> 새 포스트 작성
+                    </button>
+                </div>
+
+                <!-- 포스트 작성 폼 -->
+                <div class="post-write-form" id="post-write-form" style="display: none;">
+                    <div class="form-container">
+                        <h3>새 포스트 작성</h3>
+                        <form id="quick-post-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="quick-title">제목</label>
+                                    <input type="text" id="quick-title" name="title" required placeholder="포스트 제목을 입력하세요">
+                                </div>
+                                <div class="form-group">
+                                    <label for="quick-category">카테고리</label>
+                                    <select id="quick-category" name="category" required>
+                                        <option value="Development">Development</option>
+                                        <option value="Design">Design</option>
+                                        <option value="Technology">Technology</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="quick-excerpt">요약</label>
+                                <textarea id="quick-excerpt" name="excerpt" rows="2" required placeholder="포스트 요약을 입력하세요"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="quick-content">내용</label>
+                                <textarea id="quick-content" name="content" rows="8" required placeholder="포스트 내용을 입력하세요"></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="quick-tags">태그 (쉼표로 구분)</label>
+                                    <input type="text" id="quick-tags" name="tags" placeholder="React, TypeScript, Web Development">
+                                </div>
+                                <div class="form-group">
+                                    <label for="quick-read-time">읽기 시간</label>
+                                    <input type="text" id="quick-read-time" name="readTime" placeholder="5분" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="save-post-btn">포스트 저장</button>
+                                <button type="button" class="cancel-post-btn" onclick="togglePostForm()">취소</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="blog-posts">

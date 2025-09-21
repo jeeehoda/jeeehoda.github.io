@@ -234,6 +234,7 @@ body {
 .post-grid {
     display: grid;
     gap: var(--space-6);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .post-card {
@@ -242,11 +243,15 @@ body {
     padding: var(--space-6);
     box-shadow: var(--shadow-md);
     transition: var(--transition);
+    margin-bottom: var(--space-4);
+    position: relative;
+    z-index: 1;
 }
 
 .post-card:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-2px);
+    z-index: 2;
 }
 
 .post-meta {
@@ -357,14 +362,166 @@ body {
     .nav-item a {
         white-space: nowrap;
     }
+    
+    .blog-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .write-post-btn {
+        justify-content: center;
+        margin-top: var(--space-4);
+    }
+    
+    .quick-post-form .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-post-form .form-actions {
+        flex-direction: column;
+    }
+    
+    .post-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* Blog Filters */
+/* Blog Controls */
+.blog-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-8);
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
 .blog-filters {
     display: flex;
     gap: var(--space-3);
-    margin-bottom: var(--space-8);
     flex-wrap: wrap;
+}
+
+.write-post-btn {
+    background-color: var(--blue-gray);
+    color: var(--white);
+    border: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.write-post-btn:hover {
+    background-color: #5889A8;
+    transform: translateY(-1px);
+}
+
+/* Post Write Form */
+.post-write-form {
+    background-color: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: var(--space-8);
+    overflow: hidden;
+}
+
+.form-container {
+    padding: var(--space-8);
+}
+
+.form-container h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--gray-dark);
+    margin-bottom: var(--space-6);
+}
+
+.quick-post-form .form-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-4);
+}
+
+.quick-post-form .form-group {
+    margin-bottom: var(--space-4);
+}
+
+.quick-post-form .form-group label {
+    display: block;
+    font-weight: 500;
+    color: var(--gray-dark);
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-sm);
+}
+
+.quick-post-form .form-group input,
+.quick-post-form .form-group select,
+.quick-post-form .form-group textarea {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family);
+    transition: var(--transition);
+    resize: vertical;
+}
+
+.quick-post-form .form-group input:focus,
+.quick-post-form .form-group select:focus,
+.quick-post-form .form-group textarea:focus {
+    outline: none;
+    border-color: var(--blue-gray);
+    box-shadow: 0 0 0 3px rgba(108, 159, 191, 0.1);
+}
+
+.quick-post-form .form-actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: flex-end;
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.save-post-btn {
+    background-color: var(--blue-gray);
+    color: var(--white);
+    border: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.save-post-btn:hover {
+    background-color: #5889A8;
+    transform: translateY(-1px);
+}
+
+.cancel-post-btn {
+    background-color: var(--gray-medium);
+    color: var(--white);
+    border: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cancel-post-btn:hover {
+    background-color: #6c757d;
 }
 
 .filter-btn {
