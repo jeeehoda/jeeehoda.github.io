@@ -1,14 +1,39 @@
 {
     "posts": [
         {
-            "id": "react-typescript-modern-web-app",
-            "title": "",
-            "excerpt": "",
-            "content": "...",
+            "id": "insights-web-development",
+            "title": "Modern Web Development Insights",
+            "excerpt": ".",
+            "content": "Hi there...",
             "date": "2024-01-15",
-            "category": "Development",
+            "category": "Life",
+            "tags": [],
+            "author": "J",
             "featured": true,
-            "readTime": "8분",
+            "published": true
+        },
+        {
+            "id": "insights-web-development",
+            "title": "Modern Web Development Insights",
+            "excerpt": ".",
+            "content": "Hi there...",
+            "date": "2024-01-15",
+            "category": "Tech",
+            "tags": [],
+            "author": "J",
+            "featured": true,
+            "published": true
+        },
+        {
+            "id": "insights-web-development",
+            "title": "Modern Web Development Insights",
+            "excerpt": ".",
+            "content": "Hi there...",
+            "date": "2024-01-15",
+            "category": "Tech",
+            "tags": [],
+            "author": "J",
+            "featured": true,
             "published": true
         }
     ],
@@ -19,14 +44,9 @@
             "color": "#6C9FBF"
         },
         {
-            "name": "Thoughts",
+            "name": "Life",
             "count": 2,
             "color": "#8D8D8D"
-        },
-        {
-            "name": "Food",
-            "count": 2,
-            "color": "#3E3E3E"
         }
     ]
 }

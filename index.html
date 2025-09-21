@@ -21,131 +21,83 @@
             
             <nav class="navigation">
                 <ul>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="#home">
                             <!-- <span class="nav-icon">🏠</span> -->
                             Home
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a href="#blog">
                             <!-- <span class="nav-icon">📝</span> -->
                             Blog
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#projects">
-                            <!-- <span class="nav-icon">💼</span> -->
-                            Projects
-                        </a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a href="#about">
-                            <span class="nav-icon">👋</span>
-                            About
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact">
-                            <span class="nav-icon">📧</span>
-                            Contact
-                        </a>
-                    </li> -->
+
                 </ul>
             </nav>
-            
-            <div class="social-links">
-                <a href="https://github.com" target="_blank" class="social-link">
-                    <span>GitHub</span>
-                </a>
-                <a href="https://linkedin.com" target="_blank" class="social-link">
-                    <span>LinkedIn</span>
-                </a>
-                <!-- <a href="mailto:jeeho@example.com" class="social-link">
-                    <span>Email</span>
-                </a> -->
-            </div>
         </aside>
 
         <!-- 메인 콘텐츠 영역 -->
         <main class="main-content">
             <!-- 홈 섹션 -->
-            <section id="home" class="content-section active">
-                <!-- <div class="hero">
-                    <p class="hero-subtitle"></p>
-                </div> -->
-
-                <div class="recent-posts">
-                    <h2 class="section-title">Recent</h2>
-                    <div class="post-grid" id="recent-posts-grid">
-                        <!-- 포스트들이 동적으로 로드됩니다 -->
-                    </div>
-                </div>
+            <section id="home" class="content-section">
             </section>
-
             <!-- 블로그 섹션 -->
-            <section id="blog" class="content-section">
+            <section id="blog" class="content-section active">
                 <div class="section-header">
                     <h1 class="page-title">Blog</h1>
-
+                    <p class="page-description">what I've learned</p>
                 </div>
 
                 <div class="blog-controls">
                     <div class="blog-filters">
                         <button class="filter-btn active">All</button>
-                        <button class="filter-btn">Development</button>
-                        <button class="filter-btn">Design</button>
-                        <button class="filter-btn">Technology</button>
+                        <button class="filter-btn">Tech</button>
+                        <button class="filter-btn">Life</button>
                     </div>
-                    <button class="write-post-btn" onclick="togglePostForm()">
-                        <span>✏️</span> 새 포스트 작성
-                    </button>
+                    <button class="write-post-btn" onclick="togglePostForm()">Write Post</button>
                 </div>
 
                 <!-- 포스트 작성 폼 -->
                 <div class="post-write-form" id="post-write-form" style="display: none;">
                     <div class="form-container">
-                        <h3>새 포스트 작성</h3>
+                        <h3>Write Post</h3>
                         <form id="quick-post-form">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="quick-title">제목</label>
-                                    <input type="text" id="quick-title" name="title" required placeholder="포스트 제목을 입력하세요">
+                                    <label for="quick-title">Title</label>
+                                    <input type="text" id="quick-title" name="title" required placeholder="Enter post title">
                                 </div>
                                 <div class="form-group">
-                                    <label for="quick-category">카테고리</label>
+                                    <label for="quick-category">Category</label>
                                     <select id="quick-category" name="category" required>
-                                        <option value="Development">Development</option>
-                                        <option value="Design">Design</option>
-                                        <option value="Technology">Technology</option>
+                                        <option value="Tech">Tech</option>
+                                        <option value="Life">Life</option>
                                     </select>
                                 </div>
                             </div>
                             
                             <div class="form-group">
-                                <label for="quick-excerpt">요약</label>
-                                <textarea id="quick-excerpt" name="excerpt" rows="2" required placeholder="포스트 요약을 입력하세요"></textarea>
+                                <label for="quick-excerpt">Summary</label>
+                                <textarea id="quick-excerpt" name="excerpt" rows="2" required placeholder="Write post summary"></textarea>
                             </div>
                             
                             <div class="form-group">
-                                <label for="quick-content">내용</label>
-                                <textarea id="quick-content" name="content" rows="8" required placeholder="포스트 내용을 입력하세요"></textarea>
+                                <label for="quick-content">Content</label>
+                                <textarea id="quick-content" name="content" rows="8" required placeholder="Write post content"></textarea>
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="quick-tags">태그 (쉼표로 구분)</label>
+                                    <label for="quick-tags">Tags (comma separated)</label>
                                     <input type="text" id="quick-tags" name="tags" placeholder="React, TypeScript, Web Development">
-                                </div>
-                                <div class="form-group">
-                                    <label for="quick-read-time">읽기 시간</label>
-                                    <input type="text" id="quick-read-time" name="readTime" placeholder="5분" required>
                                 </div>
                             </div>
                             
                             <div class="form-actions">
-                                <button type="submit" class="save-post-btn">포스트 저장</button>
-                                <button type="button" class="cancel-post-btn" onclick="togglePostForm()">취소</button>
+                                <button type="submit" class="save-post-btn">Save Post</button>
+                                <button type="button" class="cancel-post-btn" onclick="togglePostForm()">Cancel</button>
                             </div>
                         </form>
                     </div>
@@ -155,60 +107,6 @@
                     <!-- 포스트들이 동적으로 로드됩니다 -->
                 </div>
             </section>
-
-            <!-- 프로젝트 섹션 -->
-            <section id="projects" class="content-section">
-                <div class="section-header">
-                    <h1 class="page-title">Projects</h1>
-                </div>
-
-                <div class="project-grid">
-                    <!-- <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://via.placeholder.com/300x200/6C9FBF/FFFFFF?text=E-commerce+Platform" alt="E-commerce Platform" />
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">E-commerce Platform</h3>
-                            <p class="project-description">
-                                React와 Node.js를 활용한 풀스택 이커머스 플랫폼입니다. 결제 시스템, 재고 관리, 사용자 인증 등의 기능을 포함합니다.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">MongoDB</span>
-                                <span class="tech-tag">Stripe</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">Live Demo</a>
-                                <a href="#" class="project-link">GitHub</a>
-                            </div>
-                        </div>
-                    </div> -->
-<!-- 
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://via.placeholder.com/300x200/6C9FBF/FFFFFF?text=Task+Management+App" alt="Task Management App" />
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Task Management App</h3>
-                            <p class="project-description">
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Vue.js</span>
-                                <span class="tech-tag">Express</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                                <span class="tech-tag">Socket.io</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">Live Demo</a>
-                                <a href="#" class="project-link">GitHub</a>
-                            </div>
-                        </div>
-                    </div> -->
-
-                </div>
-            </section>
-
         </main>
     </div>
 
