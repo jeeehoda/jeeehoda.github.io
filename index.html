@@ -1,1 +1,165 @@
-Hi
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J's Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 좌측 사이드바 -->
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="profile-image">
+                    <img src="./asset/image.png" alt="Profile" />
+                </div>
+                <h2 class="profile-name">J</h2>
+                <!--<p class="profile-title">Developer & Designer</p> -->
+            </div>
+            
+            <nav class="navigation">
+                <ul>
+                    <li class="nav-item active">
+                        <a href="#home">
+                            <!-- <span class="nav-icon">🏠</span> -->
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#blog">
+                            <!-- <span class="nav-icon">📝</span> -->
+                            Blog
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects">
+                            <!-- <span class="nav-icon">💼</span> -->
+                            Projects
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a href="#about">
+                            <span class="nav-icon">👋</span>
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact">
+                            <span class="nav-icon">📧</span>
+                            Contact
+                        </a>
+                    </li> -->
+                </ul>
+            </nav>
+            
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" class="social-link">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="social-link">
+                    <span>LinkedIn</span>
+                </a>
+                <!-- <a href="mailto:jeeho@example.com" class="social-link">
+                    <span>Email</span>
+                </a> -->
+            </div>
+        </aside>
+
+        <!-- 메인 콘텐츠 영역 -->
+        <main class="main-content">
+            <!-- 홈 섹션 -->
+            <section id="home" class="content-section active">
+                <!-- <div class="hero">
+                    <p class="hero-subtitle"></p>
+                </div> -->
+
+                <div class="recent-posts">
+                    <h2 class="section-title">Recent</h2>
+                    <div class="post-grid" id="recent-posts-grid">
+                        <!-- 포스트들이 동적으로 로드됩니다 -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 블로그 섹션 -->
+            <section id="blog" class="content-section">
+                <div class="section-header">
+                    <h1 class="page-title">Blog</h1>
+
+                </div>
+
+                <div class="blog-filters">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Development</button>
+                    <button class="filter-btn">Design</button>
+                    <button class="filter-btn">Technology</button>
+                </div>
+
+                <div class="blog-posts">
+                    <!-- 포스트들이 동적으로 로드됩니다 -->
+                </div>
+            </section>
+
+            <!-- 프로젝트 섹션 -->
+            <section id="projects" class="content-section">
+                <div class="section-header">
+                    <h1 class="page-title">Projects</h1>
+                </div>
+
+                <div class="project-grid">
+                    <!-- <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/300x200/6C9FBF/FFFFFF?text=E-commerce+Platform" alt="E-commerce Platform" />
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">E-commerce Platform</h3>
+                            <p class="project-description">
+                                React와 Node.js를 활용한 풀스택 이커머스 플랫폼입니다. 결제 시스템, 재고 관리, 사용자 인증 등의 기능을 포함합니다.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Stripe</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Live Demo</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div> -->
+<!-- 
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/300x200/6C9FBF/FFFFFF?text=Task+Management+App" alt="Task Management App" />
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Task Management App</h3>
+                            <p class="project-description">
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Socket.io</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Live Demo</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/blog-manager.js"></script>
+    <script src="js/post-editor.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
